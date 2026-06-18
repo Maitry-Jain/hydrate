@@ -11,7 +11,6 @@ class WaterReminderTimer:
         self.root.geometry("500x850")  
         self.root.resizable(True, True) 
         self.root.configure(bg="#0d1b2a")
-        # Timer settings (10 minutes = 600 seconds for testing)
         self.total_time = 10  # 10 minutes in seconds
         self.remaining_time = self.total_time
         self.is_running = False
