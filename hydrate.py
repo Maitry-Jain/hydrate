@@ -15,6 +15,7 @@ class WaterReminderTimer:
         self.remaining_time = self.total_time
         self.is_running = False
         self.water_count = 0
+        self.daily_goal=8
 
         # Initialize pygame mixer for sound
         pygame.mixer.init()
@@ -132,6 +133,15 @@ class WaterReminderTimer:
         )
         water_text_label.pack(anchor="w")
 
+        self.goal_label = tk.Label(
+        main_frame,
+        text=f"Goal: {self.water_count}/{self.daily_goal} glasses",
+        font=("TkDefaultFont", 14, "bold"),
+        fg="#4dd0e1",
+        bg="#0d1b2a"
+        )
+        self.goal_label.pack(pady=10)
+
         # Button Frame
         button_frame = tk.Frame(main_frame, bg="#0d1b2a")
         button_frame.pack(pady=25)
@@ -227,6 +237,17 @@ class WaterReminderTimer:
         self.is_running = False
         self.water_count += 1
         self.water_count_label.config(text=str(self.water_count))
+
+        self.goal_label.config(
+        text=f"Goal: {self.water_count}/{self.daily_goal} glasses"
+        )
+
+        if self.water_count >= self.daily_goal:
+            messagebox.showinfo(
+            "Goal Achieved!",
+            f"Congratulations!\n\nYou reached your daily goal of {self.daily_goal} glasses of water!"
+            )
+
 
         # Play alarm sound for 10 seconds
         self.play_alarm()
