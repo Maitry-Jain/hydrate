@@ -9,6 +9,7 @@ A desktop hydration reminder application built using Python Tkinter.
 * Alarm notification when timer finishes
 * Water intake tracking
 * Modern dark-themed UI
+* water goal tracker
 
 ## Technologies Used
 
